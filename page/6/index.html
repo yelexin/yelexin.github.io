@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>端点星 - 银河的尽头</title><meta name="keywords" content="技术博客 算法 记录"><meta name="author" content="yelexin"><meta name="copyright" content="yelexin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="yelexin 技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="端点星">
+<meta property="og:url" content="http://yelexin.cn/page/6/index.html">
+<meta property="og:site_name" content="端点星">
+<meta property="og:description" content="yelexin 技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://data.yelexin.cn/blog/avatar.jpeg">
+<meta property="article:author" content="yelexin">
+<meta property="article:tag" content="技术博客 算法 记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://data.yelexin.cn/blog/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yelexin.cn/page/6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc7249fa71a3df4eecd046044526aa0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LA8QTS1TAL","apiKey":"4177957e98358c8bce31647f752e954e","indexName":"yelexin-blog2","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: yelexin","link":"链接: ","source":"来源: 端点星","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-02-28 17:44:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://data.yelexin.cn/blog/background.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">端点星</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">端点星</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/22/%E6%90%9C%E7%B4%A2%E7%BB%84%E5%90%88%E6%95%B0/" title="搜索组合数">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搜索组合数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/22/%E6%90%9C%E7%B4%A2%E7%BB%84%E5%90%88%E6%95%B0/" title="搜索组合数">搜索组合数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-22T04:25:15.000Z" title="发表于 2020-12-22 12:25:15">2020-12-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">搜索组合的模板
+dfs 函数定义：void dfs(int start, int n, int k);
+
+记录一个 start，意义为当前这个数最小可以从几开始搜。
+记录一个 k，意义为当前搜索了几个数。
+记录一个 n，意义为当前的总和是多少。
+
+123456789101112131415161718192021222324class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; ans;    vector&lt;int&gt; path;    vector&lt;vector&lt;int&gt;&gt; combinationSum3(int k, int n) &#123;        dfs(1, n, k);        return ans;    &#125;    void dfs(int start, int n, int k) &#123;        if(!n) &#123;            if(!k) &#123;                ans.push_back( ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/20/trie%E6%A0%91/" title="Trie 树">     <img class="post_bg" src="https://data.yelexin.cn/blog/trie.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Trie 树"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/20/trie%E6%A0%91/" title="Trie 树">Trie 树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-20T12:03:02.000Z" title="发表于 2020-12-20 20:03:02">2020-12-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">Trie 树是前缀树，可以用于搜索时自动补全提示。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960class Trie &#123;public:    struct Node &#123;        bool is_end;        Node* son[26];        Node() &#123;            is_end = false;            for(int i=0;i&lt;26;i++) &#123;                son[i] = NULL;            &#125;        &#125;    &#125;*root;    /** Initialize your data structure here. */    Trie() &#123;        root = new Node();    &#125;    /* ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/16/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" title="拓扑排序">     <img class="post_bg" src="https://data.yelexin.cn/blog/topo-sort.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="拓扑排序"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/16/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" title="拓扑排序">拓扑排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-16T05:15:41.000Z" title="发表于 2020-12-16 13:15:41">2020-12-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">
+统计所有节点的入度
+将所有入度为 0 的点加入队列
+BFS，将与入度为 0 的点相连的节点入度减去 1，如果减到 0，该点入队
+
+求是否存在拓扑序：
+课程表
+原题链接
+1234567891011121314151617181920212223242526272829303132class Solution &#123;public:    bool canFinish(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges) &#123;        vector&lt;vector&lt;int&gt;&gt; g(n);        vector&lt;int&gt; d(n);        for(auto&amp; e: edges) &#123;            int a = e[0], b = e[1];            g[a].push_back(b);            d[b]++;        &#125;        queue&lt;int&gt; q;        for(int i ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/14/%E7%AD%9B%E8%B4%A8%E6%95%B0/" title="筛质数">     <img class="post_bg" src="https://data.yelexin.cn/blog/prime-numbers.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="筛质数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/14/%E7%AD%9B%E8%B4%A8%E6%95%B0/" title="筛质数">筛质数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-14T04:40:10.000Z" title="发表于 2020-12-14 12:40:10">2020-12-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">线性筛法，保证每个合数，一定会被且只会被最小质因子筛一次。
+1234567891011121314151617class Solution &#123;public:    int countPrimes(int n) &#123;        vector&lt;int&gt; primes;        vector&lt;bool&gt; st(n + 1);        for (int i = 2; i &lt; n; i ++ )        &#123;            if (!st[i]) primes.push_back(i);            for (int j = 0; i * primes[j] &lt; n; j ++ )            &#123;                st[i * primes[j]] = true;                if (i % primes[j] == 0) break;            &#125;        &#125;        return primes.s ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/12/flood-fill-%E6%A8%A1%E6%9D%BF/" title="Flood Fill 算法模板">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flood Fill 算法模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/12/flood-fill-%E6%A8%A1%E6%9D%BF/" title="Flood Fill 算法模板">Flood Fill 算法模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-12T07:33:08.000Z" title="发表于 2020-12-12 15:33:08">2020-12-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">Flood Fill 算法模板：
+12345678910111213141516方向数组dx[4] &#x3D; &#123;-1, 0, 1, 0&#125;dy[4] &#x3D; &#123;0, 1, 0, -1&#125;for i&#x3D;0 to n  for j&#x3D;0 to m    if (i, j) 未遍历      则遍历 (i, j)dfs(x, y)  标记(x, y)为已遍历  for (遍历四个方向)    计算将要遍历的下一个格子的坐标 (a, b)    if ((a, b)不越界且可以遍历)      dfs(a, b)
+12345678910111213141516171819202122232425262728class Solution &#123; public:  vector&lt;vector&lt;char&gt;&gt; g;  int dx[4] = &#123;-1, 0, 1, 0&#125;, dy[4] = &#123;0, 1, 0, -1&#125;;  int numIslands(vector&lt;ve ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/10/%E8%AE%B0%E5%BD%95%E5%B1%82%E4%BF%A1%E6%81%AF%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" title="记录层信息的层序遍历">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记录层信息的层序遍历"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/10/%E8%AE%B0%E5%BD%95%E5%B1%82%E4%BF%A1%E6%81%AF%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" title="记录层信息的层序遍历">记录层信息的层序遍历</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-10T13:52:23.000Z" title="发表于 2020-12-10 21:52:23">2020-12-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">二叉树层序遍历时可以记录层的信息，关键在于开始遍历之前，先记录一下本层要遍历多少个节点。while 循环第一件事记录本层节点数量，然后用 for 循环遍历这么多次。
+12345678910111213141516171819202122232425262728293031/** * Definition for a binary tree node. * struct TreeNode &#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123; public:  vector&lt;int&gt; rightSideView(TreeNode* root) &#123;    if (!root) return &#123;&#125;;    queue&lt;TreeNode*&gt; q;    q.pu ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/07/%E7%BB%8F%E5%85%B8%E9%B8%A1%E5%B0%BE%E9%85%92/" title="经典鸡尾酒">     <img class="post_bg" src="https://data.yelexin.cn/blog/cocktail2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="经典鸡尾酒"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/07/%E7%BB%8F%E5%85%B8%E9%B8%A1%E5%B0%BE%E9%85%92/" title="经典鸡尾酒">经典鸡尾酒</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-07T12:07:59.000Z" title="发表于 2020-12-07 20:07:59">2020-12-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%85%92/">酒</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E9%85%92/">酒</a></span></div><div class="content"> 参考
+半个青柠檬可以榨汁 15ml
+击打摇壶中部可以轻松分离上下两个杯子
+ 金汤力（Gin Tonic）
+杯子：柯林杯
+原料：黄柠檬、金酒、汤力水
+注意：柯林杯加满大块方冰 Stir 30 秒冷却杯子，倒出化水。不用 Shake
+
+柯林杯加三大块方冰 Stir 30 秒，倒出化水
+加入金酒 30ml-45ml
+半个黄柠檬榨汁
+搅拌，让金酒和柠檬汁快速冷却
+补满汤力水
+吧勺提拉
+
+ 金菲士（Gin Fizz）
+杯子：柯林杯
+原料：青柠檬、金酒、糖水、苏打水
+注意：柯林杯加满大块方冰 Stir 30 秒冷却杯子，倒出化水。加冰 Shake
+
+柯林杯加满大块方冰 Stir 30 秒冷却杯子，倒出化水
+摇壶加入以下材料
+
+
+45 ml 金酒
+15 ml 糖浆
+半个柠檬榨汁
+
+
+摇壶加冰 Shake
+倒入柯林杯
+加苏打水补满
+吧勺提拉
+加入青柠片装饰
+
+ 【新】拉莫斯金菲士（Ramos Gin Fizz）
+杯子：柯林杯
+原料：黄柠檬、青柠檬、金酒、奶油、鸡蛋、单糖浆
+注意：柯林杯加满大块方冰 Stir 30 秒冷却杯子，倒出化水。加冰 Shake。杯子里最后没冰。
+
+柯林杯加满大块方冰 Sti ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/06/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/" title="二进制位操作">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二进制位操作"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/06/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%93%8D%E4%BD%9C/" title="二进制位操作">二进制位操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-06T12:17:40.000Z" title="发表于 2020-12-06 20:17:40">2020-12-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content"> 取一个 int 数的二进制表示的第 k 位：
+12345int n = 42;int k = 2;// 将 n 右移 k 位，再与 1n &gt;&gt; k &amp; 1;
+ 把一个 int 数的二进制表示中最右边的一个 1 干掉：
+12int n = 42; // 101010int m = n &amp; (n - 1); // 101000
+ lowbit(x)lowbit(x)lowbit(x) 返回 x 的最后一位 1。
+例如：12=(1100)212 = (1100)_212=(1100)2​，lowbit(12)=(100)2=4lowbit(12) = (100)_2 = 4lowbit(12)=(100)2​=4；14=(1110)214 = (1110)_214=(1110)2​，lowbit(14)=(10)2=2lowbit(14) = (10)_2 = 2lowbit(14)=(10)2​=2
+x &amp; (~x+1) &lt;==&gt; x &amp; -x
+123int lowbit(x) &#123;  return x &amp; (-x) ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/06/dp%E9%97%AE%E9%A2%98%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E4%BC%98%E5%8C%96/" title="dp 问题滚动数组优化">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="dp 问题滚动数组优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/06/dp%E9%97%AE%E9%A2%98%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E4%BC%98%E5%8C%96/" title="dp 问题滚动数组优化">dp 问题滚动数组优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-06T11:44:53.000Z" title="发表于 2020-12-06 19:44:53">2020-12-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">题目：买卖股票的最佳时机 IV
+原题链接
+当每次状态转移只依赖于上一个状态时，可以通过机械方式将 dp 问题的空间优化为滚动数组：
+123456789101112131415161718192021222324class Solution &#123; public:  int maxProfit(int k, vector&lt;int&gt;&amp; prices) &#123;    int n = prices.size();    // 第一维设置为 2    vector&lt;vector&lt;int&gt;&gt; f(2, vector&lt;int&gt;(k + 1, -1e8));    auto g = f;    int res = 0;    f[0][0] = 0;    for (int i = 1; i &lt;= n; i++) &#123;      for (int j = 0; j &lt;= k; j++) &#123;        // 第一维都加上 &amp; 1，相当于模 2，从而在 f[0] 和 f[1] 进行滚动       ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/06/c-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" title="C++ 匿名函数">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ 匿名函数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/06/c-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" title="C++ 匿名函数">C++ 匿名函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-06T10:28:55.000Z" title="发表于 2020-12-06 18:28:55">2020-12-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/C/">C++</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">在 C++ 可以使用匿名函数来编写 sort 方法的比较函数：
+1234sort(nums.begin(), nums.end(), [](int x, int y) &#123;    string a = to_string(x), b = to_string(y);    return a+b&gt;b+a;&#125;);
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">yelexin</div><div class="author-info__description">yelexin 技术博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yelexin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识二"/></a><div class="content"><a class="title" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二">数学知识二</a><time datetime="2021-02-28T05:44:51.000Z" title="发表于 2021-02-28 13:44:51">2021-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"/></a><div class="content"><a class="title" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串">每日打卡-LeetCode-395-至少有K个重复字符的最长子串</a><time datetime="2021-02-27T05:17:39.000Z" title="发表于 2021-02-27 13:17:39">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-832-翻转图像"/></a><div class="content"><a class="title" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像">每日打卡-LeetCode-832-翻转图像</a><time datetime="2021-02-24T04:19:58.000Z" title="发表于 2021-02-24 12:19:58">2021-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-1052-爱生气的书店老板"/></a><div class="content"><a class="title" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板">每日打卡-LeetCode-1052-爱生气的书店老板</a><time datetime="2021-02-23T04:43:12.000Z" title="发表于 2021-02-23 12:43:12">2021-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识"/></a><div class="content"><a class="title" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识">数学知识</a><time datetime="2021-02-16T05:54:07.000Z" title="发表于 2021-02-16 13:54:07">2021-02-16</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B4%E8%B6%A3/"><span class="card-category-list-name">兴趣</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/"><span class="card-category-list-name">常识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%83%B3%E6%B3%95/"><span class="card-category-list-name">想法</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">85</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%85%92/"><span class="card-category-list-name">酒</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.3em; color: #99a1ac">C++</a> <a href="/tags/DFS/" style="font-size: 1.1em; color: #999">DFS</a> <a href="/tags/DevOps/" style="font-size: 1.43em; color: #99a6b9">DevOps</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/Linux/" style="font-size: 1.17em; color: #999c9f">Linux</a> <a href="/tags/Mac/" style="font-size: 1.1em; color: #999">Mac</a> <a href="/tags/Nginx/" style="font-size: 1.1em; color: #999">Nginx</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/SAML/" style="font-size: 1.1em; color: #999">SAML</a> <a href="/tags/SSO/" style="font-size: 1.1em; color: #999">SSO</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/front-end/" style="font-size: 1.1em; color: #999">front-end</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/tags/js/" style="font-size: 1.17em; color: #999c9f">js</a> <a href="/tags/k8s/" style="font-size: 1.1em; color: #999">k8s</a> <a href="/tags/linux/" style="font-size: 1.23em; color: #999ea6">linux</a> <a href="/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/nginx/" style="font-size: 1.1em; color: #999">nginx</a> <a href="/tags/wifi/" style="font-size: 1.1em; color: #999">wifi</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 1.1em; color: #999">信息论</a> <a href="/tags/%E5%85%AC%E5%8F%B8/" style="font-size: 1.1em; color: #999">公司</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.23em; color: #999ea6">前端</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1.37em; color: #99a4b2">双指针</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.17em; color: #999c9f">后端</a> <a href="/tags/%E5%9B%BD%E9%99%85%E8%B1%A1%E6%A3%8B/" style="font-size: 1.1em; color: #999">国际象棋</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.23em; color: #999ea6">图论</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.3em; color: #99a1ac">基础数据结构</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 1.17em; color: #999c9f">并查集</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.17em; color: #999c9f">数组</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 1.1em; color: #999">模拟</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 1.1em; color: #999">滑动窗口</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">计算机网络</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 1.17em; color: #999c9f">贪心</a> <a href="/tags/%E9%85%92/" style="font-size: 1.1em; color: #999">酒</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.17em; color: #999c9f">链表</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives/">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">94</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-05-05T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">41.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-02-28T09:44:21.981Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By yelexin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">衣带渐宽终不悔，为伊消得人憔悴。</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>津ICP备17010944号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function subtitleType () {
+  $.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js',function () {
+    jinrishici.load(function (result) {
+      if (true) {
+        var sub = "给岁月以文明，而不是给文明以岁月。,Fake it until you make it.".length == 0 ? new Array() : "给岁月以文明，而不是给文明以岁月。,Fake it until you make it.".split(',')
+        var content = result.data.content
+        var both = sub.unshift(content)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'yelexin-blog/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>

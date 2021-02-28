@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>wget 命令 | 端点星</title><meta name="keywords" content="linux"><meta name="author" content="yelexin"><meta name="copyright" content="yelexin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="1．命令格式： wget [参数] [URL地址]  2．命令功能： 用于从网络上下载资源，没有指定目录，下载资源回默认为当前目录。wget虽然功能强大，但是使用起来还是比较简单： 1）支持断点下传功能；这一点，也是网络蚂蚁和FlashGet当年最大的卖点，现在，Wget也可以使用此功能，那些网络不是太好的用户可以放心了； 2）同时支持FTP和HTTP下载方式；尽管现在大部分软件可以使用HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wget 命令">
+<meta property="og:url" content="http://yelexin.cn/2019/06/28/wget-%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="端点星">
+<meta property="og:description" content="1．命令格式： wget [参数] [URL地址]  2．命令功能： 用于从网络上下载资源，没有指定目录，下载资源回默认为当前目录。wget虽然功能强大，但是使用起来还是比较简单： 1）支持断点下传功能；这一点，也是网络蚂蚁和FlashGet当年最大的卖点，现在，Wget也可以使用此功能，那些网络不是太好的用户可以放心了； 2）同时支持FTP和HTTP下载方式；尽管现在大部分软件可以使用HTTP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://data.yelexin.cn/blog/reading.jpg">
+<meta property="article:published_time" content="2019-06-28T06:13:58.000Z">
+<meta property="article:modified_time" content="2021-01-23T11:28:05.493Z">
+<meta property="article:author" content="yelexin">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://data.yelexin.cn/blog/reading.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yelexin.cn/2019/06/28/wget-%E5%91%BD%E4%BB%A4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc7249fa71a3df4eecd046044526aa0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LA8QTS1TAL","apiKey":"4177957e98358c8bce31647f752e954e","indexName":"yelexin-blog2","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: yelexin","link":"链接: ","source":"来源: 端点星","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-23 19:28:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://data.yelexin.cn/blog/reading.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">端点星</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">wget 命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-06-28T06:13:58.000Z" title="发表于 2019-06-28 14:13:58">2019-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-23T11:28:05.493Z" title="更新于 2021-01-23 19:28:05">2021-01-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1命令格式"><a class="markdownIt-Anchor" href="#1命令格式"></a> 1．命令格式：</h1>
+<p>wget [参数] [URL地址]</p>
+<h1 id="2命令功能"><a class="markdownIt-Anchor" href="#2命令功能"></a> 2．命令功能：</h1>
+<p>用于从网络上下载资源，没有指定目录，下载资源回默认为当前目录。wget虽然功能强大，但是使用起来还是比较简单：</p>
+<p>1）支持断点下传功能；这一点，也是网络蚂蚁和FlashGet当年最大的卖点，现在，Wget也可以使用此功能，那些网络不是太好的用户可以放心了；</p>
+<p>2）同时支持FTP和HTTP下载方式；尽管现在大部分软件可以使用HTTP方式下载，但是，有些时候，仍然需要使用FTP方式下载软件；</p>
+<p>3）支持代理服务器；对安全强度很高的系统而言，一般不会将自己的系统直接暴露在互联网上，所以，支持代理是下载软件必须有的功能；</p>
+<p>4）设置方便简单；可能，习惯图形界面的用户已经不是太习惯命令行了，但是，命令行在设置上其实有更多的优点，最少，鼠标可以少点很多次，也不要担心是否错点鼠标；</p>
+<p>5）程序小，完全免费；程序小可以考虑不计，因为现在的硬盘实在太大了；完全免费就不得不考虑了，即使网络上有很多所谓的免费软件，但是，这些软件的广告却不是我们喜欢的。</p>
+ <a id="more"></a>
+<h1 id="3命令参数"><a class="markdownIt-Anchor" href="#3命令参数"></a> 3．命令参数：</h1>
+<p>启动参数：</p>
+<p>-V, –version 显示wget的版本后退出</p>
+<p>-h, –help 打印语法帮助</p>
+<p>-b, –background 启动后转入后台执行</p>
+<p>-e, –execute=COMMAND 执行`.wgetrc’格式的命令，wgetrc格式参见/etc/wgetrc或~/.wgetrc</p>
+<p>记录和输入文件参数：</p>
+<p>-o, –output-file=FILE 把记录写到FILE文件中</p>
+<p>-a, –append-output=FILE 把记录追加到FILE文件中</p>
+<p>-d, –debug 打印调试输出</p>
+<p>-q, –quiet 安静模式(没有输出)</p>
+<p>-v, –verbose 冗长模式(这是缺省设置)</p>
+<p>-nv, –non-verbose 关掉冗长模式，但不是安静模式</p>
+<p>-i, –input-file=FILE 下载在FILE文件中出现的URLs</p>
+<p>-F, –force-html 把输入文件当作HTML格式文件对待</p>
+<p>-B, –base=URL 将URL作为在-F -i参数指定的文件中出现的相对链接的前缀</p>
+<p>–sslcertfile=FILE 可选客户端证书</p>
+<p>–sslcertkey=KEYFILE 可选客户端证书的KEYFILE</p>
+<p>–egd-file=FILE 指定EGD socket的文件名</p>
+<p>下载参数：</p>
+<p>–bind-address=ADDRESS 指定本地使用地址(主机名或IP，当本地有多个IP或名字时使用)</p>
+<p>-t, –tries=NUMBER 设定最大尝试链接次数(0 表示无限制).</p>
+<p>-O –output-document=FILE 把文档写到FILE文件中</p>
+<p>-nc, –no-clobber 不要覆盖存在的文件或使用.#前缀</p>
+<p>-c, –continue 接着下载没下载完的文件</p>
+<p>–progress=TYPE 设定进程条标记</p>
+<p>-N, –timestamping 不要重新下载文件除非比本地文件新</p>
+<p>-S, –server-response 打印服务器的回应</p>
+<p>–spider 不下载任何东西</p>
+<p>-T, –timeout=SECONDS 设定响应超时的秒数</p>
+<p>-w, –wait=SECONDS 两次尝试之间间隔SECONDS秒</p>
+<p>–waitretry=SECONDS 在重新链接之间等待1…SECONDS秒</p>
+<p>–random-wait 在下载之间等待0…2*WAIT秒</p>
+<p>-Y, –proxy=on/off 打开或关闭代理</p>
+<p>-Q, –quota=NUMBER 设置下载的容量限制</p>
+<p>–limit-rate=RATE 限定下载输率</p>
+<p>目录参数：</p>
+<p>-nd –no-directories 不创建目录</p>
+<p>-x, –force-directories 强制创建目录</p>
+<p>-nH, –no-host-directories 不创建主机目录</p>
+<p>-P, –directory-prefix=PREFIX 将文件保存到目录 PREFIX/…</p>
+<p>–cut-dirs=NUMBER 忽略 NUMBER层远程目录</p>
+<p>HTTP 选项参数：</p>
+<p>–http-user=USER 设定HTTP用户名为 USER.</p>
+<p>–http-passwd=PASS 设定http密码为 PASS</p>
+<p>-C, –cache=on/off 允许/不允许服务器端的数据缓存 (一般情况下允许)</p>
+<p>-E, –html-extension 将所有text/html文档以.html扩展名保存</p>
+<p>–ignore-length 忽略 `Content-Length’头域</p>
+<p>–header=STRING 在headers中插入字符串 STRING</p>
+<p>–proxy-user=USER 设定代理的用户名为 USER</p>
+<p>–proxy-passwd=PASS 设定代理的密码为 PASS</p>
+<p>–referer=URL 在HTTP请求中包含 `Referer: URL’头</p>
+<p>-s, –save-headers 保存HTTP头到文件</p>
+<p>-U, –user-agent=AGENT 设定代理的名称为 AGENT而不是 Wget/VERSION</p>
+<p>–no-http-keep-alive 关闭 HTTP活动链接 (永远链接)</p>
+<p>–cookies=off 不使用 cookies</p>
+<p>–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie</p>
+<p>–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中</p>
+<p>FTP 选项参数：</p>
+<p>-nr, –dont-remove-listing 不移走 `.listing’文件</p>
+<p>-g, –glob=on/off 打开或关闭文件名的 globbing机制</p>
+<p>–passive-ftp 使用被动传输模式 (缺省值).</p>
+<p>–active-ftp 使用主动传输模式</p>
+<p>–retr-symlinks 在递归的时候，将链接指向文件(而不是目录)</p>
+<p>递归下载参数：</p>
+<p>-r, –recursive 递归下载－－慎用!</p>
+<p>-l, –level=NUMBER 最大递归深度 (inf 或 0 代表无穷)</p>
+<p>–delete-after 在现在完毕后局部删除文件</p>
+<p>-k, –convert-links 转换非相对链接为相对链接</p>
+<p>-K, –backup-converted 在转换文件X之前，将之备份为 X.orig</p>
+<p>-m, –mirror 等价于 -r -N -l inf -nr</p>
+<p>-p, –page-requisites 下载显示HTML文件的所有图片</p>
+<p>递归下载中的包含和不包含(accept/reject)：</p>
+<p>-A, –accept=LIST 分号分隔的被接受扩展名的列表</p>
+<p>-R, –reject=LIST 分号分隔的不被接受的扩展名的列表</p>
+<p>-D, –domains=LIST 分号分隔的被接受域的列表</p>
+<p>–exclude-domains=LIST 分号分隔的不被接受的域的列表</p>
+<p>–follow-ftp 跟踪HTML文档中的FTP链接</p>
+<p>–follow-tags=LIST 分号分隔的被跟踪的HTML标签的列表</p>
+<p>-G, –ignore-tags=LIST 分号分隔的被忽略的HTML标签的列表</p>
+<p>-H, –span-hosts 当递归时转到外部主机</p>
+<p>-L, –relative 仅仅跟踪相对链接</p>
+<p>-I, –include-directories=LIST 允许目录的列表</p>
+<p>-X, –exclude-directories=LIST 不被包含目录的列表</p>
+<p>-np, –no-parent 不要追溯到父目录</p>
+<p>wget -S –spider url 不下载只显示过程</p>
+<h1 id="4使用实例"><a class="markdownIt-Anchor" href="#4使用实例"></a> 4．使用实例：</h1>
+<h2 id="实例1使用wget下载单个文件"><a class="markdownIt-Anchor" href="#实例1使用wget下载单个文件"></a> 实例1：使用wget下载单个文件</h2>
+<p>命令：</p>
+<p>wget <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>说明：</p>
+<p>以下的例子是从网络下载一个文件并保存在当前目录，在下载的过程中会显示进度条，包含（下载完成百分比，已经下载的字节，当前下载速度，剩余下载时间）。</p>
+<h2 id="实例2使用wget-o下载并以不同的文件名保存"><a class="markdownIt-Anchor" href="#实例2使用wget-o下载并以不同的文件名保存"></a> 实例2：使用wget -O下载并以不同的文件名保存</h2>
+<dl>
+<dt>命令：</dt>
+<dd>wget -O wordpress.zip <a target="_blank" rel="noopener" href="http://www.minjieren.com/download.aspx?id=1080">http://www.minjieren.com/download.aspx?id=1080</a></dd>
+</dl>
+<p>说明：</p>
+<p>wget默认会以最后一个符合”/”的后面的字符来命令，对于动态链接的下载通常文件名会不正确。</p>
+<p>错误：下面的例子会下载一个文件并以名称download.aspx?id=1080保存</p>
+<p>wget <a target="_blank" rel="noopener" href="http://www.minjieren.com/download?id=1">http://www.minjieren.com/download?id=1</a></p>
+<p>即使下载的文件是zip格式，它仍然以download.php?id=1080命令。</p>
+<p>正确：为了解决这个问题，我们可以使用参数-O来指定一个文件名：</p>
+<p>wget -O wordpress.zip <a target="_blank" rel="noopener" href="http://www.minjieren.com/download.aspx?id=1080">http://www.minjieren.com/download.aspx?id=1080</a></p>
+<h2 id="实例3使用wget-limit-rate限速下载"><a class="markdownIt-Anchor" href="#实例3使用wget-limit-rate限速下载"></a> 实例3：使用wget –limit -rate限速下载</h2>
+<p>命令：</p>
+<p>wget --limit-rate=300k <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>说明：</p>
+<p>当你执行wget的时候，它默认会占用全部可能的宽带下载。但是当你准备下载一个大文件，而你还需要下载其它文件时就有必要限速了。</p>
+<h2 id="实例4使用wget-c断点续传"><a class="markdownIt-Anchor" href="#实例4使用wget-c断点续传"></a> 实例4：使用wget -c断点续传</h2>
+<p>命令：</p>
+<p>wget -c <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>说明：</p>
+<p>使用wget -c重新启动下载中断的文件，对于我们下载大文件时突然由于网络等原因中断非常有帮助，我们可以继续接着下载而不是重新下载一个文件。需要继续中断的下载时可以使用-c参数。</p>
+<h2 id="实例5使用wget-b后台下载"><a class="markdownIt-Anchor" href="#实例5使用wget-b后台下载"></a> 实例5：使用wget -b后台下载</h2>
+<p>命令：</p>
+<p>wget -b <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>说明：</p>
+<p>对于下载非常大的文件的时候，我们可以使用参数-b进行后台下载。</p>
+<p>wget -b <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>Continuing in background, pid 1840.</p>
+<p>Output will be written to `wget-log’.</p>
+<p>你可以使用以下命令来察看下载进度：</p>
+<p>tail -f wget-log</p>
+<h2 id="实例6伪装代理名称下载"><a class="markdownIt-Anchor" href="#实例6伪装代理名称下载"></a> 实例6：伪装代理名称下载</h2>
+<p>命令：</p>
+<p>wget --user-agent=“Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16” <a target="_blank" rel="noopener" href="http://www.minjieren.com/wordpress-3.1-zh_CN.zip">http://www.minjieren.com/wordpress-3.1-zh_CN.zip</a></p>
+<p>说明：</p>
+<p>有些网站能通过根据判断代理名称不是浏览器而拒绝你的下载请求。不过你可以通过–user-agent参数伪装。</p>
+<h2 id="实例7使用wget-spider测试下载链接"><a class="markdownIt-Anchor" href="#实例7使用wget-spider测试下载链接"></a> 实例7：使用wget –spider测试下载链接</h2>
+<p>命令：</p>
+<p>wget --spider URL</p>
+<p>说明：</p>
+<p>当你打算进行定时下载，你应该在预定时间测试下载链接是否有效。我们可以增加–spider参数进行检查。</p>
+<p>wget --spider URL</p>
+<p>如果下载链接正确，将会显示</p>
+<p>wget --spider URL</p>
+<p>Spider mode enabled. Check if remote file exists.</p>
+<p>HTTP request sent, awaiting response… 200 OK</p>
+<p>Length: unspecified [text/html]</p>
+<p>Remote file exists and could contain further links,</p>
+<p>but recursion is disabled – not retrieving.</p>
+<p>这保证了下载能在预定的时间进行，但当你给错了一个链接，将会显示如下错误</p>
+<p>wget --spider url</p>
+<p>Spider mode enabled. Check if remote file exists.</p>
+<p>HTTP request sent, awaiting response… 404 Not Found</p>
+<p>Remote file does not exist – broken link!!!</p>
+<p>你可以在以下几种情况下使用spider参数：</p>
+<p>定时下载之前进行检查</p>
+<p>间隔检测网站是否可用</p>
+<p>检查网站页面的死链接</p>
+<h2 id="实例8使用wget-tries增加重试次数"><a class="markdownIt-Anchor" href="#实例8使用wget-tries增加重试次数"></a> 实例8：使用wget –tries增加重试次数</h2>
+<p>命令：</p>
+<p>wget --tries=40 URL</p>
+<p>说明：</p>
+<p>如果网络有问题或下载一个大文件也有可能失败。wget默认重试20次连接下载文件。如果需要，你可以使用–tries增加重试次数。</p>
+<h2 id="实例9使用wget-i下载多个文件"><a class="markdownIt-Anchor" href="#实例9使用wget-i下载多个文件"></a> 实例9：使用wget -i下载多个文件</h2>
+<p>命令：</p>
+<p>wget -i filelist.txt</p>
+<p>说明：</p>
+<p>首先，保存一份下载链接文件</p>
+<p>cat &gt; filelist.txt</p>
+<p>url1</p>
+<p>url2</p>
+<p>url3</p>
+<p>url4</p>
+<p>接着使用这个文件和参数-i下载</p>
+<h2 id="实例10使用wget-mirror镜像网站"><a class="markdownIt-Anchor" href="#实例10使用wget-mirror镜像网站"></a> 实例10：使用wget –mirror镜像网站</h2>
+<p>命令：</p>
+<p>wget --mirror -p --convert-links -P ./LOCAL URL</p>
+<p>说明：</p>
+<p>下载整个网站到本地。</p>
+<p>–miror:开户镜像下载</p>
+<p>-p:下载所有为了html页面显示正常的文件</p>
+<p>–convert-links:下载后，转换成本地的链接</p>
+<p>-P ./LOCAL：保存所有文件和目录到本地指定目录</p>
+<h2 id="实例11使用wget-reject过滤指定格式下载"><a class="markdownIt-Anchor" href="#实例11使用wget-reject过滤指定格式下载"></a> 实例11：使用wget –reject过滤指定格式下载</h2>
+<p>命令：<br />
+wget --reject=gif ur</p>
+<p>说明：</p>
+<p>下载一个网站，但你不希望下载图片，可以使用以下命令。</p>
+<h2 id="实例12使用wget-o把下载信息存入日志文件"><a class="markdownIt-Anchor" href="#实例12使用wget-o把下载信息存入日志文件"></a> 实例12：使用wget -o把下载信息存入日志文件</h2>
+<p>命令：</p>
+<p>wget -o download.log URL</p>
+<p>说明：</p>
+<p>不希望下载信息直接显示在终端而是在一个日志文件，可以使用</p>
+<h2 id="实例13使用wget-q限制总下载文件大小"><a class="markdownIt-Anchor" href="#实例13使用wget-q限制总下载文件大小"></a> 实例13：使用wget -Q限制总下载文件大小</h2>
+<p>命令：</p>
+<p>wget -Q5m -i filelist.txt</p>
+<p>说明：</p>
+<p>当你想要下载的文件超过5M而退出下载，你可以使用。注意：这个参数对单个文件下载不起作用，只能递归下载时才有效。</p>
+<h2 id="实例14使用wget-r-a下载指定格式文件"><a class="markdownIt-Anchor" href="#实例14使用wget-r-a下载指定格式文件"></a> 实例14：使用wget -r -A下载指定格式文件</h2>
+<p>命令：</p>
+<p>wget -r -A.pdf url</p>
+<p>说明：</p>
+<p>可以在以下情况使用该功能：</p>
+<p>下载一个网站的所有图片</p>
+<p>下载一个网站的所有视频</p>
+<p>下载一个网站的所有PDF文件</p>
+<h2 id="实例15使用wget-ftp下载"><a class="markdownIt-Anchor" href="#实例15使用wget-ftp下载"></a> 实例15：使用wget FTP下载</h2>
+<p>命令：</p>
+<p>wget ftp-url</p>
+<p>wget --ftp-user=USERNAME --ftp-password=PASSWORD url</p>
+<p>说明：</p>
+<p>可以使用wget来完成ftp链接的下载。</p>
+<p>使用wget匿名ftp下载：</p>
+<p>wget ftp-url</p>
+<p>使用wget用户名和密码认证的ftp下载</p>
+<p>wget --ftp-user=USERNAME --ftp-password=PASSWORD url</p>
+<h2 id="备注编译安装"><a class="markdownIt-Anchor" href="#备注编译安装"></a> 备注：编译安装</h2>
+<p>使用如下命令编译安装：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> tar zxvf wget-1.9.1.tar.gz</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> wget-1.9.1</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> make</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> make install</span> </span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yelexin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yelexin.cn/2019/06/28/wget-%E5%91%BD%E4%BB%A4/">http://yelexin.cn/2019/06/28/wget-命令/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yelexin.cn" target="_blank">端点星</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="https://data.yelexin.cn/blog/reading.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://data.yelexin.cn/blog/alipay.jpeg" target="_blank"><img class="post-qr-code-img" src="https://data.yelexin.cn/blog/alipay.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/07/01/Mac-%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96/"><img class="prev-cover" src="https://data.yelexin.cn/blog/reading.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Mac 终端美化</div></div></a></div><div class="next-post pull-right"><a href="/2019/06/14/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%BB%93%E8%AF%BE%E8%AE%BA%E6%96%87/"><img class="next-cover" src="https://data.yelexin.cn/blog/reading.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">信息论结课论文</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/09/21/linux-命令简记/" title="linux 命令简记"><img class="cover" src="https://data.yelexin.cn/blog/reading.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-21</div><div class="title">linux 命令简记</div></div></a></div><div><a href="/2019/09/07/openssl/" title="openssl"><img class="cover" src="https://data.yelexin.cn/blog/OpenSSL.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-07</div><div class="title">openssl</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">yelexin</div><div class="author-info__description">yelexin 技术博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yelexin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 1．命令格式：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E5%91%BD%E4%BB%A4%E5%8A%9F%E8%83%BD"><span class="toc-number">2.</span> <span class="toc-text"> 2．命令功能：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text"> 3．命令参数：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text"> 4．使用实例：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B1%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text"> 实例1：使用wget下载单个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B2%E4%BD%BF%E7%94%A8wget-o%E4%B8%8B%E8%BD%BD%E5%B9%B6%E4%BB%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E4%BF%9D%E5%AD%98"><span class="toc-number">4.2.</span> <span class="toc-text"> 实例2：使用wget -O下载并以不同的文件名保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B3%E4%BD%BF%E7%94%A8wget-limit-rate%E9%99%90%E9%80%9F%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.3.</span> <span class="toc-text"> 实例3：使用wget –limit -rate限速下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B4%E4%BD%BF%E7%94%A8wget-c%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="toc-number">4.4.</span> <span class="toc-text"> 实例4：使用wget -c断点续传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B5%E4%BD%BF%E7%94%A8wget-b%E5%90%8E%E5%8F%B0%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.5.</span> <span class="toc-text"> 实例5：使用wget -b后台下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B6%E4%BC%AA%E8%A3%85%E4%BB%A3%E7%90%86%E5%90%8D%E7%A7%B0%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.6.</span> <span class="toc-text"> 实例6：伪装代理名称下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B7%E4%BD%BF%E7%94%A8wget-spider%E6%B5%8B%E8%AF%95%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="toc-number">4.7.</span> <span class="toc-text"> 实例7：使用wget –spider测试下载链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B8%E4%BD%BF%E7%94%A8wget-tries%E5%A2%9E%E5%8A%A0%E9%87%8D%E8%AF%95%E6%AC%A1%E6%95%B0"><span class="toc-number">4.8.</span> <span class="toc-text"> 实例8：使用wget –tries增加重试次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B9%E4%BD%BF%E7%94%A8wget-i%E4%B8%8B%E8%BD%BD%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">4.9.</span> <span class="toc-text"> 实例9：使用wget -i下载多个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B10%E4%BD%BF%E7%94%A8wget-mirror%E9%95%9C%E5%83%8F%E7%BD%91%E7%AB%99"><span class="toc-number">4.10.</span> <span class="toc-text"> 实例10：使用wget –mirror镜像网站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B11%E4%BD%BF%E7%94%A8wget-reject%E8%BF%87%E6%BB%A4%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.11.</span> <span class="toc-text"> 实例11：使用wget –reject过滤指定格式下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B12%E4%BD%BF%E7%94%A8wget-o%E6%8A%8A%E4%B8%8B%E8%BD%BD%E4%BF%A1%E6%81%AF%E5%AD%98%E5%85%A5%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="toc-number">4.12.</span> <span class="toc-text"> 实例12：使用wget -o把下载信息存入日志文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B13%E4%BD%BF%E7%94%A8wget-q%E9%99%90%E5%88%B6%E6%80%BB%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="toc-number">4.13.</span> <span class="toc-text"> 实例13：使用wget -Q限制总下载文件大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B14%E4%BD%BF%E7%94%A8wget-r-a%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="toc-number">4.14.</span> <span class="toc-text"> 实例14：使用wget -r -A下载指定格式文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B15%E4%BD%BF%E7%94%A8wget-ftp%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.15.</span> <span class="toc-text"> 实例15：使用wget FTP下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E6%B3%A8%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-number">4.16.</span> <span class="toc-text"> 备注：编译安装</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识二"/></a><div class="content"><a class="title" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二">数学知识二</a><time datetime="2021-02-28T05:44:51.000Z" title="发表于 2021-02-28 13:44:51">2021-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"/></a><div class="content"><a class="title" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串">每日打卡-LeetCode-395-至少有K个重复字符的最长子串</a><time datetime="2021-02-27T05:17:39.000Z" title="发表于 2021-02-27 13:17:39">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-832-翻转图像"/></a><div class="content"><a class="title" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像">每日打卡-LeetCode-832-翻转图像</a><time datetime="2021-02-24T04:19:58.000Z" title="发表于 2021-02-24 12:19:58">2021-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-1052-爱生气的书店老板"/></a><div class="content"><a class="title" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板">每日打卡-LeetCode-1052-爱生气的书店老板</a><time datetime="2021-02-23T04:43:12.000Z" title="发表于 2021-02-23 12:43:12">2021-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识"/></a><div class="content"><a class="title" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识">数学知识</a><time datetime="2021-02-16T05:54:07.000Z" title="发表于 2021-02-16 13:54:07">2021-02-16</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By yelexin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">衣带渐宽终不悔，为伊消得人憔悴。</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>津ICP备17010944号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'uhijTaFDhW4XoRgDnlNFewEz-gzGzoHsz',
+      appKey: '5b64RSXkm79VJvR50KyRa8Rt',
+      placeholder: '别忘了留下你的昵称和邮箱~',
+      avatar: 'gravatar',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'yelexin-blog/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>

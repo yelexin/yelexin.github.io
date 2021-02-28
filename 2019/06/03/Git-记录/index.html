@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git 记录 | 端点星</title><meta name="keywords" content="git"><meta name="author" content="yelexin"><meta name="copyright" content="yelexin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="比较 git diff 和 git log -p 比较记录中，+ 代表时间靠后的，- 代表时间靠前的。 git diff 旧记录 新记录 这样显示出来的比较符合认知习惯  穿梭 git reset --hard 会移动 HEAD 指针、移动分支指针、改变工作区内容 git checkout 只移动 HEAD 指针、改变工作区内容  cherry-pick git cherry-pick &lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 记录">
+<meta property="og:url" content="http://yelexin.cn/2019/06/03/Git-%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="端点星">
+<meta property="og:description" content="比较 git diff 和 git log -p 比较记录中，+ 代表时间靠后的，- 代表时间靠前的。 git diff 旧记录 新记录 这样显示出来的比较符合认知习惯  穿梭 git reset --hard 会移动 HEAD 指针、移动分支指针、改变工作区内容 git checkout 只移动 HEAD 指针、改变工作区内容  cherry-pick git cherry-pick &lt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://data.yelexin.cn/blog/reading.jpg">
+<meta property="article:published_time" content="2019-06-03T08:35:02.000Z">
+<meta property="article:modified_time" content="2021-01-23T11:28:05.494Z">
+<meta property="article:author" content="yelexin">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://data.yelexin.cn/blog/reading.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yelexin.cn/2019/06/03/Git-%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc7249fa71a3df4eecd046044526aa0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LA8QTS1TAL","apiKey":"4177957e98358c8bce31647f752e954e","indexName":"yelexin-blog2","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: yelexin","link":"链接: ","source":"来源: 端点星","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-23 19:28:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://data.yelexin.cn/blog/reading.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">端点星</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">Git 记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-06-03T08:35:02.000Z" title="发表于 2019-06-03 16:35:02">2019-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-23T11:28:05.494Z" title="更新于 2021-01-23 19:28:05">2021-01-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="比较"><a class="markdownIt-Anchor" href="#比较"></a> 比较</h1>
+<p><code>git diff</code> 和 <code>git log -p</code> 比较记录中，<code>+</code> 代表时间靠后的，<code>-</code> 代表时间靠前的。<br />
+<code>git diff 旧记录 新记录</code> 这样显示出来的比较符合认知习惯</p>
+<h1 id="穿梭"><a class="markdownIt-Anchor" href="#穿梭"></a> 穿梭</h1>
+<p><code>git reset --hard</code> 会移动 HEAD 指针、移动分支指针、改变工作区内容<br />
+<code>git checkout</code> 只移动 HEAD 指针、改变工作区内容</p>
+<h1 id="cherry-pick"><a class="markdownIt-Anchor" href="#cherry-pick"></a> cherry-pick</h1>
+<p><code>git cherry-pick &lt;hash&gt;</code> 把一个提交搬运到当前分支上</p>
+<h1 id="分支"><a class="markdownIt-Anchor" href="#分支"></a> 分支</h1>
+<p><code>git branch -m old new</code> 本地分支重命名<br />
+<code>git remote rename upstream origin</code> 远程库重命名，把 upstream 重命名为 origin<br />
+<code>git checkout -b newBranch origin/master</code> 基于 <code>origin/master</code> 创建一个名为 <code>newBranch</code> 的新分支<br />
+<code>git push origin --delete remoteBranch</code> 删除远程分支</p>
+<h1 id="设置大小写敏感"><a class="markdownIt-Anchor" href="#设置大小写敏感"></a> 设置大小写敏感</h1>
+<p>不设置的话，修改文件名大小写不做记录，无法提交</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+<h1 id="创建-post-receive-钩子"><a class="markdownIt-Anchor" href="#创建-post-receive-钩子"></a> 创建 post-receive 钩子</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/home/yelexin/web-service/blog-html --git-dir=/home/yelexin/web-service/blog-repo checkout -f</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">g=git</span><br><span class="line">ga=&#x27;git add&#x27;</span><br><span class="line">gaa=&#x27;git add --all&#x27;</span><br><span class="line">gap=&#x27;git apply&#x27;</span><br><span class="line">gapa=&#x27;git add --patch&#x27;</span><br><span class="line">gau=&#x27;git add --update&#x27;</span><br><span class="line">gav=&#x27;git add --verbose&#x27;</span><br><span class="line">gb=&#x27;git branch&#x27;</span><br><span class="line">gbD=&#x27;git branch -D&#x27;</span><br><span class="line">gba=&#x27;git branch -a&#x27;</span><br><span class="line">gbd=&#x27;git branch -d&#x27;</span><br><span class="line">gbda=&#x27;git branch --no-color --merged | command grep -vE &quot;^(\*|\s*(master|develop|dev)\s*$)&quot; | command xargs -n 1 git branch -d&#x27;</span><br><span class="line">gbl=&#x27;git blame -b -w&#x27;</span><br><span class="line">gbnm=&#x27;git branch --no-merged&#x27;</span><br><span class="line">gbr=&#x27;git branch --remote&#x27;</span><br><span class="line">gbs=&#x27;git bisect&#x27;</span><br><span class="line">gbsb=&#x27;git bisect bad&#x27;</span><br><span class="line">gbsg=&#x27;git bisect good&#x27;</span><br><span class="line">gbsr=&#x27;git bisect reset&#x27;</span><br><span class="line">gbss=&#x27;git bisect start&#x27;</span><br><span class="line">gc=&#x27;git commit -v&#x27;</span><br><span class="line">&#x27;gc!&#x27;=&#x27;git commit -v --amend&#x27;</span><br><span class="line">gca=&#x27;git commit -v -a&#x27;</span><br><span class="line">&#x27;gca!&#x27;=&#x27;git commit -v -a --amend&#x27;</span><br><span class="line">gcam=&#x27;git commit -a -m&#x27;</span><br><span class="line">&#x27;gcan!&#x27;=&#x27;git commit -v -a --no-edit --amend&#x27;</span><br><span class="line">&#x27;gcans!&#x27;=&#x27;git commit -v -a -s --no-edit --amend&#x27;</span><br><span class="line">gcb=&#x27;git checkout -b&#x27;</span><br><span class="line">gcd=&#x27;git checkout develop&#x27;</span><br><span class="line">gcf=&#x27;git config --list&#x27;</span><br><span class="line">gcl=&#x27;git clone --recurse-submodules&#x27;</span><br><span class="line">gclean=&#x27;git clean -fd&#x27;</span><br><span class="line">gcm=&#x27;git checkout master&#x27;</span><br><span class="line">gcmsg=&#x27;git commit -m&#x27;</span><br><span class="line">&#x27;gcn!&#x27;=&#x27;git commit -v --no-edit --amend&#x27;</span><br><span class="line">gco=&#x27;git checkout&#x27;</span><br><span class="line">gcount=&#x27;git shortlog -sn&#x27;</span><br><span class="line">gcp=&#x27;git cherry-pick&#x27;</span><br><span class="line">gcpa=&#x27;git cherry-pick --abort&#x27;</span><br><span class="line">gcpc=&#x27;git cherry-pick --continue&#x27;</span><br><span class="line">gcs=&#x27;git commit -S&#x27;</span><br><span class="line">gcsm=&#x27;git commit -s -m&#x27;</span><br><span class="line">gd=&#x27;git diff&#x27;</span><br><span class="line">gdca=&#x27;git diff --cached&#x27;</span><br><span class="line">gdct=&#x27;git describe --tags `git rev-list --tags --max-count=1`&#x27;</span><br><span class="line">gdcw=&#x27;git diff --cached --word-diff&#x27;</span><br><span class="line">gds=&#x27;git diff --staged&#x27;</span><br><span class="line">gdt=&#x27;git diff-tree --no-commit-id --name-only -r&#x27;</span><br><span class="line">gdw=&#x27;git diff --word-diff&#x27;</span><br><span class="line">gf=&#x27;git fetch&#x27;</span><br><span class="line">gfa=&#x27;git fetch --all --prune&#x27;</span><br><span class="line">gfo=&#x27;git fetch origin&#x27;</span><br><span class="line">gg=&#x27;git gui citool&#x27;</span><br><span class="line">gga=&#x27;git gui citool --amend&#x27;</span><br><span class="line">ggpull=&#x27;git pull origin &quot;$(git_current_branch)&quot;&#x27;</span><br><span class="line">ggpush=&#x27;git push origin &quot;$(git_current_branch)&quot;&#x27;</span><br><span class="line">ggsup=&#x27;git branch --set-upstream-to=origin/$(git_current_branch)&#x27;</span><br><span class="line">ghh=&#x27;git help&#x27;</span><br><span class="line">gignore=&#x27;git update-index --assume-unchanged&#x27;</span><br><span class="line">gignored=&#x27;git ls-files -v | grep &quot;^[[:lower:]]&quot;&#x27;</span><br><span class="line">git-svn-dcommit-push=&#x27;git svn dcommit &amp;&amp; git push github master:svntrunk&#x27;</span><br><span class="line">gk=&#x27;\gitk --all --branches&#x27;</span><br><span class="line">gke=&#x27;\gitk --all $(git log -g --pretty=%h)&#x27;</span><br><span class="line">gl=&#x27;git pull&#x27;</span><br><span class="line">glg=&#x27;git log --stat&#x27;</span><br><span class="line">glgg=&#x27;git log --graph&#x27;</span><br><span class="line">glgga=&#x27;git log --graph --decorate --all&#x27;</span><br><span class="line">glgm=&#x27;git log --graph --max-count=10&#x27;</span><br><span class="line">glgp=&#x27;git log --stat -p&#x27;</span><br><span class="line">glo=&#x27;git log --oneline --decorate&#x27;</span><br><span class="line">glod=&#x27;git log --graph --pretty=&#x27;\&#x27;&#x27;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset&#x27;\&#x27;</span><br><span class="line">glods=&#x27;git log --graph --pretty=&#x27;\&#x27;&#x27;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset&#x27;\&#x27;&#x27; --date=short&#x27;</span><br><span class="line">glog=&#x27;git log --oneline --decorate --graph&#x27;</span><br><span class="line">gloga=&#x27;git log --oneline --decorate --graph --all&#x27;</span><br><span class="line">glol=&#x27;git log --graph --pretty=&#x27;\&#x27;&#x27;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#x27;\&#x27;</span><br><span class="line">glola=&#x27;git log --graph --pretty=&#x27;\&#x27;&#x27;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#x27;\&#x27;&#x27; --all&#x27;</span><br><span class="line">glols=&#x27;git log --graph --pretty=&#x27;\&#x27;&#x27;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#x27;\&#x27;&#x27; --stat&#x27;</span><br><span class="line">glp=_git_log_prettily</span><br><span class="line">glum=&#x27;git pull upstream master&#x27;</span><br><span class="line">gm=&#x27;git merge&#x27;</span><br><span class="line">gma=&#x27;git merge --abort&#x27;</span><br><span class="line">gmom=&#x27;git merge origin/master&#x27;</span><br><span class="line">gmt=&#x27;git mergetool --no-prompt&#x27;</span><br><span class="line">gmtvim=&#x27;git mergetool --no-prompt --tool=vimdiff&#x27;</span><br><span class="line">gmum=&#x27;git merge upstream/master&#x27;</span><br><span class="line">gp=&#x27;git push&#x27;</span><br><span class="line">gpd=&#x27;git push --dry-run&#x27;</span><br><span class="line">gpf=&#x27;git push --force-with-lease&#x27;</span><br><span class="line">&#x27;gpf!&#x27;=&#x27;git push --force&#x27;</span><br><span class="line">gpoat=&#x27;git push origin --all &amp;&amp; git push origin --tags&#x27;</span><br><span class="line">gpristine=&#x27;git reset --hard &amp;&amp; git clean -dfx&#x27;</span><br><span class="line">gpsup=&#x27;git push --set-upstream origin $(git_current_branch)&#x27;</span><br><span class="line">gpu=&#x27;git push upstream&#x27;</span><br><span class="line">gpv=&#x27;git push -v&#x27;</span><br><span class="line">gr=&#x27;git remote&#x27;</span><br><span class="line">gra=&#x27;git remote add&#x27;</span><br><span class="line">grb=&#x27;git rebase&#x27;</span><br><span class="line">grba=&#x27;git rebase --abort&#x27;</span><br><span class="line">grbc=&#x27;git rebase --continue&#x27;</span><br><span class="line">grbd=&#x27;git rebase develop&#x27;</span><br><span class="line">grbi=&#x27;git rebase -i&#x27;</span><br><span class="line">grbm=&#x27;git rebase master&#x27;</span><br><span class="line">grbs=&#x27;git rebase --skip&#x27;</span><br><span class="line">grep=&#x27;grep  --color=auto --exclude-dir=&#123;.bzr,CVS,.git,.hg,.svn&#125;&#x27;</span><br><span class="line">grh=&#x27;git reset&#x27;</span><br><span class="line">grhh=&#x27;git reset --hard&#x27;</span><br><span class="line">grm=&#x27;git rm&#x27;</span><br><span class="line">grmc=&#x27;git rm --cached&#x27;</span><br><span class="line">grmv=&#x27;git remote rename&#x27;</span><br><span class="line">groh=&#x27;git reset origin/$(git_current_branch) --hard&#x27;</span><br><span class="line">grrm=&#x27;git remote remove&#x27;</span><br><span class="line">grset=&#x27;git remote set-url&#x27;</span><br><span class="line">grt=&#x27;cd $(git rev-parse --show-toplevel || echo &quot;.&quot;)&#x27;</span><br><span class="line">gru=&#x27;git reset --&#x27;</span><br><span class="line">grup=&#x27;git remote update&#x27;</span><br><span class="line">grv=&#x27;git remote -v&#x27;</span><br><span class="line">gsb=&#x27;git status -sb&#x27;</span><br><span class="line">gsd=&#x27;git svn dcommit&#x27;</span><br><span class="line">gsh=&#x27;git show&#x27;</span><br><span class="line">gsi=&#x27;git submodule init&#x27;</span><br><span class="line">gsps=&#x27;git show --pretty=short --show-signature&#x27;</span><br><span class="line">gsr=&#x27;git svn rebase&#x27;</span><br><span class="line">gss=&#x27;git status -s&#x27;</span><br><span class="line">gst=&#x27;git status&#x27;</span><br><span class="line">gsta=&#x27;git stash save&#x27;</span><br><span class="line">gstaa=&#x27;git stash apply&#x27;</span><br><span class="line">gstall=&#x27;git stash --all&#x27;</span><br><span class="line">gstc=&#x27;git stash clear&#x27;</span><br><span class="line">gstd=&#x27;git stash drop&#x27;</span><br><span class="line">gstl=&#x27;git stash list&#x27;</span><br><span class="line">gstp=&#x27;git stash pop&#x27;</span><br><span class="line">gsts=&#x27;git stash show --text&#x27;</span><br><span class="line">gsu=&#x27;git submodule update&#x27;</span><br><span class="line">gts=&#x27;git tag -s&#x27;</span><br><span class="line">gtv=&#x27;git tag | sort -V&#x27;</span><br><span class="line">gunignore=&#x27;git update-index --no-assume-unchanged&#x27;</span><br><span class="line">gunwip=&#x27;git log -n 1 | grep -q -c &quot;\-\-wip\-\-&quot; &amp;&amp; git reset HEAD~1&#x27;</span><br><span class="line">gup=&#x27;git pull --rebase&#x27;</span><br><span class="line">gupa=&#x27;git pull --rebase --autostash&#x27;</span><br><span class="line">gupav=&#x27;git pull --rebase --autostash -v&#x27;</span><br><span class="line">gupv=&#x27;git pull --rebase -v&#x27;</span><br><span class="line">gwch=&#x27;git whatchanged -p --abbrev-commit --pretty=medium&#x27;</span><br><span class="line">gwip=&#x27;git add -A; git rm $(git ls-files --deleted) 2&gt; /dev/null; git commit --no-verify -m &quot;--wip-- [skip ci]&quot;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yelexin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yelexin.cn/2019/06/03/Git-%E8%AE%B0%E5%BD%95/">http://yelexin.cn/2019/06/03/Git-记录/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yelexin.cn" target="_blank">端点星</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post_share"><div class="social-share" data-image="https://data.yelexin.cn/blog/reading.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://data.yelexin.cn/blog/alipay.jpeg" target="_blank"><img class="post-qr-code-img" src="https://data.yelexin.cn/blog/alipay.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/04/%E6%B5%8F%E8%A7%88%E5%99%A8-BOM-DOM-%E8%AE%B0%E5%BD%95/"><img class="prev-cover" src="https://data.yelexin.cn/blog/reading.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">浏览器 BOM DOM 记录</div></div></a></div><div class="next-post pull-right"><a href="/2019/05/30/Linux-locale-%E9%97%AE%E9%A2%98/"><img class="next-cover" src="https://data.yelexin.cn/blog/reading.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux locale 问题</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">yelexin</div><div class="author-info__description">yelexin 技术博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yelexin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">1.</span> <span class="toc-text"> 比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A9%BF%E6%A2%AD"><span class="toc-number">2.</span> <span class="toc-text"> 穿梭</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cherry-pick"><span class="toc-number">3.</span> <span class="toc-text"> cherry-pick</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text"> 分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="toc-number">5.</span> <span class="toc-text"> 设置大小写敏感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-post-receive-%E9%92%A9%E5%AD%90"><span class="toc-number">6.</span> <span class="toc-text"> 创建 post-receive 钩子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">7.</span> <span class="toc-text"> 常用命令</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识二"/></a><div class="content"><a class="title" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二">数学知识二</a><time datetime="2021-02-28T05:44:51.000Z" title="发表于 2021-02-28 13:44:51">2021-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"/></a><div class="content"><a class="title" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串">每日打卡-LeetCode-395-至少有K个重复字符的最长子串</a><time datetime="2021-02-27T05:17:39.000Z" title="发表于 2021-02-27 13:17:39">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-832-翻转图像"/></a><div class="content"><a class="title" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像">每日打卡-LeetCode-832-翻转图像</a><time datetime="2021-02-24T04:19:58.000Z" title="发表于 2021-02-24 12:19:58">2021-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-1052-爱生气的书店老板"/></a><div class="content"><a class="title" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板">每日打卡-LeetCode-1052-爱生气的书店老板</a><time datetime="2021-02-23T04:43:12.000Z" title="发表于 2021-02-23 12:43:12">2021-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识"/></a><div class="content"><a class="title" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识">数学知识</a><time datetime="2021-02-16T05:54:07.000Z" title="发表于 2021-02-16 13:54:07">2021-02-16</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By yelexin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">衣带渐宽终不悔，为伊消得人憔悴。</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>津ICP备17010944号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'uhijTaFDhW4XoRgDnlNFewEz-gzGzoHsz',
+      appKey: '5b64RSXkm79VJvR50KyRa8Rt',
+      placeholder: '别忘了留下你的昵称和邮箱~',
+      avatar: 'gravatar',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'yelexin-blog/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>

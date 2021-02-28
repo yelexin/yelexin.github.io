@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>端点星 - 银河的尽头</title><meta name="keywords" content="技术博客 算法 记录"><meta name="author" content="yelexin"><meta name="copyright" content="yelexin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="yelexin 技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="端点星">
+<meta property="og:url" content="http://yelexin.cn/page/2/index.html">
+<meta property="og:site_name" content="端点星">
+<meta property="og:description" content="yelexin 技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://data.yelexin.cn/blog/avatar.jpeg">
+<meta property="article:author" content="yelexin">
+<meta property="article:tag" content="技术博客 算法 记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://data.yelexin.cn/blog/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yelexin.cn/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc7249fa71a3df4eecd046044526aa0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LA8QTS1TAL","apiKey":"4177957e98358c8bce31647f752e954e","indexName":"yelexin-blog2","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: yelexin","link":"链接: ","source":"来源: 端点星","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-02-28 17:44:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://data.yelexin.cn/blog/background.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">端点星</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">端点星</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/09/%E6%A0%88/" title="栈">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/09/%E6%A0%88/" title="栈">栈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-09T13:39:29.000Z" title="发表于 2021-02-09 21:39:29">2021-02-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">12345678910111213141516#include &lt;iostream&gt;using namespace std;const int N = 1e5;// [1, tt] 是栈中的元素，当栈空时 tt = 0，即 [1, 0] 区间为空int stk[N], tt;int main() &#123;  stk[++tt] = 5;  stk[tt];  tt--;  if(tt &gt; 0) &#123;  &#125;  return 0;&#125;</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/09/%E9%98%9F%E5%88%97/" title="队列">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="队列"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/09/%E9%98%9F%E5%88%97/" title="队列">队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-09T13:39:10.000Z" title="发表于 2021-02-09 21:39:10">2021-02-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">基础数据结构</a></span></div><div class="content">1234567891011121314151617181920#include &lt;iostream&gt;using namespace std;const int N = 1e5;// hh 指向队头元素，tt 指向队尾元素，[hh, tt] 区间是队列中的元素。初始区间为 [0, -1]，tt 初始化为 -1，队列为空int q[N], hh, tt = -1;int main() &#123;  // 插入  q[++tt] = 5;  // 查看队头  q[hh];  // 弹出  hh++;  // 队列不空  if(hh &lt;= tt) &#123;  &#125;  return 0;&#125;</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/09/Checkmate-patterns/" title="Checkmate-patterns">     <img class="post_bg" src="https://data.yelexin.cn/blog/chess/chessboard.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Checkmate-patterns"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/09/Checkmate-patterns/" title="Checkmate-patterns">Checkmate-patterns</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-09T12:26:33.000Z" title="发表于 2021-02-09 20:26:33">2021-02-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%85%B4%E8%B6%A3/">兴趣</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%9B%BD%E9%99%85%E8%B1%A1%E6%A3%8B/">国际象棋</a></span></div><div class="content"> 图标
+♔♕♖♗♘♙♚♛♜♝♞♟
+ 车马杀王 - ♖ ♘ ⚔ ♚
+
+
+
+ 马象杀王 - ♘ ♗ ⚔ ♚
+
+
+
+ 车象杀王 - ♖ ♗ ⚔ ♚
+
+
+
+
+ 车后杀王 - ♖ ♕ ⚔ ♚
+
+
+ 象后杀王 - ♗ ♕ ⚔ ♚
+
+
+
+ 单后杀王 - ♕ ⚔ ♚
+
+ 车兵杀王 - ♖ ♙ ⚔ ♚
+
+ 后兵杀王 - ♕ ♙ ⚔ ♚
+
+
+ 闷杀 - ♘ ⚔ ♚
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/09/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/" title="搜索与图论（一）">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搜索与图论（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/09/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/" title="搜索与图论（一）">搜索与图论（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-09T03:37:52.000Z" title="发表于 2021-02-09 11:37:52">2021-02-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content"> 深度优先搜索（DFS）
+回溯，剪枝。想清楚搜索顺序。回溯时注意恢复现场。
+搜索框架
+排列数字
+123456789101112131415161718192021222324252627282930313233#include &lt;iostream&gt;using namespace std;const int N = 10;// 记录是否使用过bool st[N];int n;// 保存每次搜索的路径。path 用于存每个方案。int path[N];// u 代表搜索第几层，第 0 层时，填写了 0 个元素void dfs(int u) &#123;    if(u == n) &#123;        for(int i=0;i&lt;n;i++) cout &lt;&lt; path[i] &lt;&lt; &quot; &quot;;        cout &lt;&lt; endl;        return;    &#125;    // 在每一层时，从 1 到 n 依次查看当前位置能不能填 i    for(int i=1;i&lt;=n;i++) &#1 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/08/cpp-stl%E5%AE%B9%E5%99%A8/" title="C++ STL 容器">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ STL 容器"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/08/cpp-stl%E5%AE%B9%E5%99%A8/" title="C++ STL 容器">C++ STL 容器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-08T12:55:36.000Z" title="发表于 2021-02-08 20:55:36">2021-02-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/C/">C++</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content"> vector
+变长数组。倍增思想。
+系统为某一程序分配空间时，所需时间与分配的空间大小无关，与申请次数有关。
+初始时，为 vector 申请 32 个空间长度，当空间占满后，申请 2 倍大小的空间，然后将原来的 32 个空间中的内容复制到新的空间中，继续使用新的空间。
+复制元素均摊后时间复杂度为 O(1)O(1)O(1)。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &lt;vector&gt;#include &lt;iostream&gt;using namespace std;int main () &#123;  // 最简单用法，初始化一个 vector  vector&lt;int&gt; a;  // 初始化一个长度为 10 的 vector  vector&lt;int&gt; b(10);  // 初始化一个长度为 10 的 vector，并将其中的元素都设置成 3  vector&lt; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">哈希表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-08T07:06:01.000Z" title="发表于 2021-02-08 15:06:01">2021-02-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content"> 哈希表
+适合将定义域很大的数据映射到值域较小的集合。是一般意义上的哈希，离散化是一种特殊的哈希，需要保序，哈希函数需要单调递增。
+x∈(10−9,109),h(x)∈(0,105)x\in(10^{-9}, 10^{9}), h(x)\in(0, 10^{5})x∈(10−9,109),h(x)∈(0,105)
+哈希函数一般为：h(x)=x \mod 质数
+质数应尽可能离 2n2^{n}2n 要远，这样冲突的概率最小。
+ 存储结构
+ 开放寻址法
+只使用一个一维数组，经验值开辟 2~3 倍元素个数的数组空间。
+ 拉链法
+开一个一维数组，长度为值域大小。每次算出一个哈希值 h[x] = y，就在 y 的位置上开一个链表，在链表末尾记录 x 的值。
+查询某个数 x 是否在哈希表中，首先计算出哈希值 h[x] = y，然后遍历哈希值对应的数组位置 y 上的链表，查看链表中是否存在 x。
+总结：一个数组，拉了很多链表。数组插槽编号对应的是哈希值，数组插槽内容对应的是链表节点编号。链表节点中存的是原始数据值。
+ 字符串哈希方式
+将字符串看成一个 p 进制数。
+例如：“ABCD”
+hash((AB ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/08/%E5%A0%86/" title="堆">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="堆"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/08/%E5%A0%86/" title="堆">堆</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-08T05:06:00.000Z" title="发表于 2021-02-08 13:06:00">2021-02-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">基础数据结构</a></span></div><div class="content"> 堆的操作：
+
+插入一个数
+求集合中的最小值
+删除最小值
+*删除任何一个元素
+*修改任何一个元素
+
+ 堆的存储
+堆是一个完全二叉树。
+存储：使用一个一维数组存储，下标从 1 开始存。完全二叉树一般都用一维数组存储。
+小根堆：每个点都小于等于左右儿子。
+xxx 的左儿子：2x2x2x
+xxx 的右儿子：2x+12x + 12x+1
+ 基础操作
+ down(x)
+down(x): 把一个节点往下移动。需要与左右两个孩子比较，与小的孩子交换。时间复杂度与树的高度成正比，因此是 O(log(n))O(log(n))O(log(n))
+ up(x)
+up(x): 把一个节点往上移动。只需与父节点比较，如果比父节点小，就与父节点交换。时间复杂度与树的高度成正比，因此是 O(log(n))O(log(n))O(log(n))
+再来看堆的操作
+ 插入一个数
+1heap[++size] = x; up(size);
+ 求集合中的最小值
+1heap[1]
+ 删除最小值
+用堆的最后一个元素覆盖堆顶的元素。将最后一个元素删除。将堆顶元素下移。
+1heap[1] = heap[size--]; down(1); ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/01/postgres%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D%E5%A4%87%E4%BB%BD/" title="postgres数据恢复备份">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgres数据恢复备份"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/01/postgres%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D%E5%A4%87%E4%BB%BD/" title="postgres数据恢复备份">postgres数据恢复备份</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-01T03:36:48.000Z" title="发表于 2021-02-01 11:36:48">2021-02-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/DevOps/">DevOps</a></span></div><div class="content">1$ psql -U &#123;数据库用户名&#125; -h &#123;数据库host&#125; -p &#123;端口&#125; -d &#123;数据库&#125; -f db-back.dump
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/01/27/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并查集"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/27/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">并查集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-27T15:48:55.000Z" title="发表于 2021-01-27 23:48:55">2021-01-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a></span></div><div class="content"> 并查集能快速处理以下操作：
+
+将两个集合合并
+询问两个元素是否在一个集合中
+
+时间复杂度近乎 O(1)
+ 基本原理
+每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点，p[x] 表示 x 的父节点。
+ 如何判断树根？
+if(p[x] == x)
+ 如何求集合编号？
+while(p[x]!=x) x=p[x];
+ 如何合并两个集合？
+p[x] = y
+ 优化
+每次找到根节点后，进行路径压缩。
+ 模板题
+原题链接
+12345678910111213141516171819202122232425262728293031323334#include &lt;iostream&gt;using namespace std;const int N = 100010;int p[N];int n,m;// 返回 x 所在集合的编号（祖宗节点） + 路径压缩。int find(int x) &#123;    // 只要 x 的父节点不是祖宗节点，就让 x 的父节点指向 x 的祖宗节点    if(p[x]!=x) p[x] = find(p[x]);    return ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/01/23/%E5%88%86%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/" title="分阶段构建docker镜像">     <img class="post_bg" src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分阶段构建docker镜像"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/23/%E5%88%86%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/" title="分阶段构建docker镜像">分阶段构建docker镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-23T11:17:32.000Z" title="发表于 2021-01-23 19:17:32">2021-01-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/DevOps/">DevOps</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/Docker/">Docker</a></span></div><div class="content">官方文档文档
+当构建 docker 镜像时，每运行一次 RUN 指令就会为镜像增加一个层，因此为了减小镜像体积经常看到如下样式的构建命令，将多个命令合成一行多次使用了 &amp;&amp; 符号。：
+12RUN go get -d -v golang.org/x/net/html \  &amp;&amp; CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+分阶段构建镜像的思路在于：可以将先使用一个大而全的镜像构建程序，然后将构建产物复制到一个精简版本的镜像。
+1234567891011FROM golang:1.7.3 AS builderWORKDIR /go/src/github.com/alexellis/href-counter/RUN go get -d -v golang.org/x/net/htmlCOPY app.go    .RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .FROM alpine:la ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://data.yelexin.cn/blog/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">yelexin</div><div class="author-info__description">yelexin 技术博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yelexin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yelexin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yelexin@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识二"/></a><div class="content"><a class="title" href="/2021/02/28/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%BA%8C/" title="数学知识二">数学知识二</a><time datetime="2021-02-28T05:44:51.000Z" title="发表于 2021-02-28 13:44:51">2021-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-395-至少有K个重复字符的最长子串"/></a><div class="content"><a class="title" href="/2021/02/27/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-395-%E8%87%B3%E5%B0%91%E6%9C%89K%E4%B8%AA%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="每日打卡-LeetCode-395-至少有K个重复字符的最长子串">每日打卡-LeetCode-395-至少有K个重复字符的最长子串</a><time datetime="2021-02-27T05:17:39.000Z" title="发表于 2021-02-27 13:17:39">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-832-翻转图像"/></a><div class="content"><a class="title" href="/2021/02/24/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-832-%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F/" title="每日打卡-LeetCode-832-翻转图像">每日打卡-LeetCode-832-翻转图像</a><time datetime="2021-02-24T04:19:58.000Z" title="发表于 2021-02-24 12:19:58">2021-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日打卡-LeetCode-1052-爱生气的书店老板"/></a><div class="content"><a class="title" href="/2021/02/23/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1-LeetCode-1052-%E7%88%B1%E7%94%9F%E6%B0%94%E7%9A%84%E4%B9%A6%E5%BA%97%E8%80%81%E6%9D%BF/" title="每日打卡-LeetCode-1052-爱生气的书店老板">每日打卡-LeetCode-1052-爱生气的书店老板</a><time datetime="2021-02-23T04:43:12.000Z" title="发表于 2021-02-23 12:43:12">2021-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识"><img src="https://data.yelexin.cn/blog/reading.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学知识"/></a><div class="content"><a class="title" href="/2021/02/16/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B8%80/" title="数学知识">数学知识</a><time datetime="2021-02-16T05:54:07.000Z" title="发表于 2021-02-16 13:54:07">2021-02-16</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B4%E8%B6%A3/"><span class="card-category-list-name">兴趣</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/"><span class="card-category-list-name">常识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%83%B3%E6%B3%95/"><span class="card-category-list-name">想法</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">85</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%85%92/"><span class="card-category-list-name">酒</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.3em; color: #99a1ac">C++</a> <a href="/tags/DFS/" style="font-size: 1.1em; color: #999">DFS</a> <a href="/tags/DevOps/" style="font-size: 1.43em; color: #99a6b9">DevOps</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/Linux/" style="font-size: 1.17em; color: #999c9f">Linux</a> <a href="/tags/Mac/" style="font-size: 1.1em; color: #999">Mac</a> <a href="/tags/Nginx/" style="font-size: 1.1em; color: #999">Nginx</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/SAML/" style="font-size: 1.1em; color: #999">SAML</a> <a href="/tags/SSO/" style="font-size: 1.1em; color: #999">SSO</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/front-end/" style="font-size: 1.1em; color: #999">front-end</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/tags/js/" style="font-size: 1.17em; color: #999c9f">js</a> <a href="/tags/k8s/" style="font-size: 1.1em; color: #999">k8s</a> <a href="/tags/linux/" style="font-size: 1.23em; color: #999ea6">linux</a> <a href="/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/nginx/" style="font-size: 1.1em; color: #999">nginx</a> <a href="/tags/wifi/" style="font-size: 1.1em; color: #999">wifi</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 1.1em; color: #999">信息论</a> <a href="/tags/%E5%85%AC%E5%8F%B8/" style="font-size: 1.1em; color: #999">公司</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.23em; color: #999ea6">前端</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1.37em; color: #99a4b2">双指针</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.17em; color: #999c9f">后端</a> <a href="/tags/%E5%9B%BD%E9%99%85%E8%B1%A1%E6%A3%8B/" style="font-size: 1.1em; color: #999">国际象棋</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.23em; color: #999ea6">图论</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.3em; color: #99a1ac">基础数据结构</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 1.17em; color: #999c9f">并查集</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.17em; color: #999c9f">数组</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 1.1em; color: #999">模拟</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 1.1em; color: #999">滑动窗口</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">计算机网络</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 1.17em; color: #999c9f">贪心</a> <a href="/tags/%E9%85%92/" style="font-size: 1.1em; color: #999">酒</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.17em; color: #999c9f">链表</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives/">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">94</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-05-05T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">41.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-02-28T09:44:21.981Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By yelexin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">衣带渐宽终不悔，为伊消得人憔悴。</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>津ICP备17010944号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function subtitleType () {
+  $.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js',function () {
+    jinrishici.load(function (result) {
+      if (true) {
+        var sub = "给岁月以文明，而不是给文明以岁月。,Fake it until you make it.".length == 0 ? new Array() : "给岁月以文明，而不是给文明以岁月。,Fake it until you make it.".split(',')
+        var content = result.data.content
+        var both = sub.unshift(content)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'yelexin-blog/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>
